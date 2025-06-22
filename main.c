@@ -3,6 +3,7 @@
 
 void main(){
     Board board;
+    initEmptyBoard(&board);
     fillBoard(&board);
     printBoard(&board);
 }

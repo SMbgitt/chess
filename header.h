@@ -12,3 +12,4 @@ void setTeam(Figure *n, int t);
 int getValue(Figure *n);
 void setValue(Figure *n, int value);
 void printBoard(Board* board);
+void initEmptyBoard(Board* board);

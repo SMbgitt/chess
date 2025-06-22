@@ -18,7 +18,7 @@ void fillBoard(Board* board){
     }
     for(i=3;i<6;i++){
         for(int j=0;j<8;j++){
-            board->square[i][j] = (Figure){None,-1,(i,j),0};
+            board->square[i][j] = (Figure){None,0,(i,j),0};
         }
     }
     for(i=0;i<8;i++){
@@ -56,28 +56,44 @@ void setValue(Figure *n, int val){
 void printBoard(Board* board){
     int i,j;
 
-    char pieces[8][8] = {{
+    static const char *pieces[2][7] = {{
         "-",    // NONE
-        "♙",    // PAWN
-        "♗",    // BISHOP
-        "♘",    // KNIGHT
-        "♖",    // ROOK        
-        "♕",    // QUEEN
-        "♔"     // KING
+        "p",    // PAWN
+        "b",    // BISHOP
+        "n",    // KNIGHT
+        "r",    // ROOK        
+        "q",    // QUEEN
+        "k"     // KING
     },
     {
         "*",    // NONE
-        "♟",    // PAWN
-        "♝",    // BISHOP
-        "♞",    // KNIGHT
-        "♜",    // ROOK
-        "♛",    // QUEEN
-        "♚"     // KING
+        "p",    // PAWN
+        "b",    // BISHOP
+        "n",    // KNIGHT
+        "r",    // ROOK
+        "q",    // QUEEN
+        "k"     // KING
     }};
     for(i=0;i<8;i++){
         for(j=0;j<8;j++){
-            printf("%c ",pieces[getTeam(&board->square[i][j])][getValue(&board->square[i][j])]);
+            printf("%s ",pieces[getTeam(&board->square[i][j])][getValue(&board->square[i][j])]);
         }
         printf("\n");
+    }
+}
+void initEmptyBoard(Board *board) {
+    if (!board) {
+        printf("Error: NULL board passed to initEmptyBoard!\n");
+        return;
+    }
+
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            Position pos = {i,j};
+            board->square[i][j].type = None;
+            board->square[i][j].team = -1;
+            board->square[i][j].value = 0;
+            board->square[i][j].pos = pos;
+        }
     }
 }
