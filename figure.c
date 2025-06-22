@@ -21,8 +21,9 @@ typedef struct{
     Type type;
     int team;
     Position pos;
+    int value;
 }Figure;
 
 typedef struct{
-    Figure board[8][8];
+    Figure square[8][8];
 }Board;

@@ -8,4 +8,7 @@ void setPos(Figure* n, Position pos);
 Type getType(Figure* n);
 void setType(Figure* n, Type t);
 int getTeam(Figure *n);
-void setTeam(Figure *n);
+void setTeam(Figure *n, int t);
+int getValue(Figure *n);
+void setValue(Figure *n, int value);
+void printBoard(Board* board);
