@@ -1,9 +1,5 @@
-#include <stdio.h>
-#include "header.h"
+#include "game.h"
 
 void main(){
-    Board board;
-    initEmptyBoard(&board);
-    fillBoard(&board);
-    printBoard(&board);
+    menu();
 }

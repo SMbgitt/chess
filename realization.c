@@ -4,7 +4,7 @@
 void transmit(Position *pos1, Position* pos2, Board* board){
     board->square[pos2->x][pos2->y] = board->square[pos1->x][pos1->y];
     setPos(&board->square[pos2->x][pos2->y], pos2);
-    board->square[pos1->x][pos1->y] = (Figure){None,0,pos1};
+    board->square[pos1->x][pos1->y] = (Figure){None,0,pos1->x};
     setValue(&board->square[pos1->x][pos1->y],0);
 }
 void fillBoard(Board* board){
@@ -51,7 +51,7 @@ void setPos(Figure* n, Position* pos){
 Type getType(Figure* n){
     return n->type;
 }
-void setType(Figure* n, Type* t){
+void setType(Figure* n, Type t){
     n->type = t;
 }
 int getTeam(Figure *n){
