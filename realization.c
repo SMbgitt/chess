@@ -66,6 +66,10 @@ int getValue(Figure *n){
 void setValue(Figure *n, int val){
     n->value = val;
 }
+void setPosxy(Position *p,int x, int y){
+    p->x = x;
+    p->y = y;
+}
 void printBoard(Board* board){
     int i,j;
 
@@ -87,12 +91,15 @@ void printBoard(Board* board){
         "♛",    // QUEEN
         "♚"     // KING
     }};
+    printf("\n");
     for(i=0;i<8;i++){
+        printf("%d ", i+1);
         for(j=0;j<8;j++){
             printf("%s ",pieces[getTeam(&board->square[i][j])][getValue(&board->square[i][j])]);
         }
         printf("\n");
     }
+    printf("  a b c d e f g h\n");
 }
 void initEmptyBoard(Board *board) {
     if (!board) {
