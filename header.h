@@ -3,7 +3,7 @@
 #include "figure.h"
 void transmit(Position* pos1, Position* pos2, Board* board);
 void fillBoard(Board* board);
-void checkingMove(Figure n, Position xy);
+int checkingMove(Figure n, Position xy, Board board);
 Position getPos(Figure* n);
 void setPos(Figure* n, Position* pos);
 Type getType(Figure* n);
